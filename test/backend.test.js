@@ -108,7 +108,7 @@ test('ID inesistente: 404; ID malformati: 400', async () => {
 });
 
 test('rotte assenti e operazioni extra non implementate: 404 JSON', async () => {
-  for (const [percorso, method] of [['/', 'GET'], ['/inesistente', 'GET'], ['/api/titoli/1', 'PUT'], ['/api/titoli/1', 'DELETE']]) {
+  for (const [percorso, method] of [['/inesistente', 'GET'], ['/api/titoli/1', 'PUT'], ['/api/titoli/1', 'DELETE']]) {
     const risposta = await richiesta(percorso, { method });
     assert.equal(risposta.status, 404);
     assert.equal(typeof risposta.dati.errore, 'string');
@@ -122,6 +122,10 @@ test('il limite del parser produce 413 JSON', async () => {
 });
 
 test('middleware statico: serve solo public e non espone i file del progetto', async () => {
+  const pagina = await fetch(baseUrl + '/');
+  assert.equal(pagina.status, 200);
+  assert.match(pagina.headers.get('content-type'), /text\/html/);
+  assert.match(await pagina.text(), /BellaFilm/);
   const file = path.join(__dirname, '../public/verifica-test.txt');
   await fs.writeFile(file, 'File temporaneo per il test', { flag: 'wx' });
   try {

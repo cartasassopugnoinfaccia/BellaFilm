@@ -1,5 +1,7 @@
 # Capire il backend di BellaFilm
 
+> Documento della fase backend. Nella successiva fase frontend sono stati aggiunti i file in `public/`: ora `/` serve la pagina e non restituisce più 404. Le API descritte qui sono invariate. Per l'interfaccia consultare `spiegazione-frontend.md`.
+
 ## Node.js ed Express
 
 JavaScript è il linguaggio. Node.js è il programma che esegue JavaScript fuori dal browser, per esempio sul computer che ospita il server. Il paragone con Python è: `python programma.py` esegue Python, mentre `node server.js` esegue JavaScript. Node.js non è un database e non è un linguaggio diverso.

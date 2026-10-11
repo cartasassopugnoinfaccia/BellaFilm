@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Il tuo catalogo personale di film e serie TV.">
+  <title>BellaFilm — Il tuo prossimo spettacolo</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="salta" href="#contenuto">Vai al contenuto</a>
+  <header class="testata">
+    <a class="marchio" href="/" aria-label="BellaFilm, pagina iniziale"><span aria-hidden="true">B.</span> BellaFilm</a>
+    <p>IL TUO CATALOGO PERSONALE</p>
+  </header>
+  <main id="contenuto">
+    <section class="introduzione" aria-labelledby="titolo-pagina">
+      <p class="sopratitolo">FILM, SERIE E PROSSIME VISIONI</p>
+      <h1 id="titolo-pagina">Le belle storie.<br><em>Tutte al loro posto.</em></h1>
+      <p>Da vedere, da continuare, da ricordare.<br>Raccogli qui i tuoi film e le tue serie TV.</p>
+      <span class="decorazione" aria-hidden="true">▶</span>
+    </section>
+    <p id="messaggio" class="messaggio" role="status" aria-live="polite" aria-atomic="true">Caricamento del catalogo…</p>
+    <div class="layout">
+      <section class="pannello inserimento" aria-labelledby="titolo-modulo">
+        <p class="sopratitolo">UN NUOVO INIZIO</p>
+        <h2 id="titolo-modulo">Aggiungi un titolo</h2>
+        <p class="nota">Tutti i campi sono obbligatori.</p>
+        <form id="modulo" novalidate>
+          <fieldset id="campi">
+            <legend class="solo-lettori">Dati del film o della serie</legend>
+            <label for="titolo">Titolo</label>
+            <input id="titolo" name="titolo" type="text" required placeholder="Es. Interstellar" aria-describedby="errore-titolo">
+            <p class="errore-campo" id="errore-titolo"></p>
+            <label for="tipo">Tipo</label>
+            <select id="tipo" name="tipo" required aria-describedby="errore-tipo">
+              <option value="film">Film</option><option value="serie">Serie TV</option>
+            </select>
+            <p class="errore-campo" id="errore-tipo"></p>
+            <label for="genere">Genere</label>
+            <input id="genere" name="genere" type="text" required placeholder="Es. Fantascienza" aria-describedby="errore-genere">
+            <p class="errore-campo" id="errore-genere"></p>
+            <label for="anno">Anno</label>
+            <input id="anno" name="anno" type="number" min="1888" max="2100" step="1" required placeholder="Es. 2014" aria-describedby="errore-anno">
+            <p class="errore-campo" id="errore-anno"></p>
+            <label for="stato">Stato di visione</label>
+            <select id="stato" name="stato" required aria-describedby="errore-stato">
+              <option value="da_vedere">Da vedere</option><option value="in_corso">In corso</option><option value="completato">Completato</option>
+            </select>
+            <p class="errore-campo" id="errore-stato"></p>
+            <button id="salva" type="submit">Aggiungi al catalogo <span aria-hidden="true">＋</span></button>
+          </fieldset>
+        </form>
+      </section>
+      <section class="catalogo" aria-labelledby="titolo-catalogo" aria-busy="true">
+        <div class="intestazione-sezione"><div><p class="sopratitolo">LA TUA SELEZIONE</p><h2 id="titolo-catalogo">Il catalogo</h2></div><span id="conteggio" class="conteggio">—</span></div>
+        <div id="vuoto" class="vuoto" hidden><span aria-hidden="true">＋</span><h3>Nessun titolo presente</h3><p>Ogni bella raccolta inizia da una storia.<br>Aggiungi il primo film o la prima serie.</p></div>
+        <p id="errore-catalogo" hidden>Non è stato possibile caricare il catalogo. Controlla la connessione e ricarica la pagina.</p>
+        <div id="schede" class="schede"></div>
+      </section>
+    </div>
+    <section id="dettagli" class="pannello dettagli" aria-labelledby="titolo-dettagli" aria-busy="false">
+      <p class="sopratitolo">UNO SGUARDO DA VICINO</p>
+      <h2 id="titolo-dettagli" tabindex="-1">Dettagli del titolo</h2>
+      <div id="contenuto-dettagli"><p>Seleziona «Dettagli» su una scheda per scoprire tutte le informazioni.</p></div>
+    </section>
+  </main>
+  <footer><strong>BellaFilm</strong><p>Una storia alla volta.</p><p class="nota">Il catalogo è temporaneo: i titoli si perdono al riavvio del server.</p></footer>
+  <noscript>Attiva JavaScript per caricare il catalogo e aggiungere titoli.</noscript>
+</body>
+</html>

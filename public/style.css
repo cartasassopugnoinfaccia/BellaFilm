@@ -1,0 +1,64 @@
+:root { color-scheme: light; --fondo: #f6f5ef; --carta: #fffefa; --testo: #203b34; --secondario: #5c6861; --bordo: #d9dfd5; --verde: #244e3f; --errore: #a22e28; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--fondo); color: var(--testo); font-family: system-ui, sans-serif; line-height: 1.6; }
+button, input, select { font: inherit; }
+button, a, input, select { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid #a96120; outline-offset: 4px; }
+[hidden] { display: none !important; }
+.testata, main, footer { width: min(1180px, calc(100% - 64px)); margin: auto; }
+.testata { display: flex; justify-content: space-between; align-items: center; min-height: 96px; border-bottom: 1px solid var(--bordo); }
+.testata > p, .sopratitolo { font-size: .7rem; font-weight: 700; letter-spacing: .16em; }
+.marchio { display: flex; align-items: center; gap: 12px; font-size: 1.3rem; font-weight: 750; color: inherit; text-decoration: none; }
+.marchio span { background: var(--verde); color: white; width: 42px; height: 42px; text-align: center; border-radius: 12px; font-family: Georgia, serif; font-size: 1.6rem; }
+.introduzione { position: relative; padding: 45px 0 30px; overflow: hidden; }
+.sopratitolo { margin: 0 0 10px; color: var(--secondario); }
+h1 { font: 400 clamp(2.8rem, 5vw, 4.5rem)/1.08 Georgia, serif; letter-spacing: -.04em; margin: 15px 0 20px; }
+h1 em { color: #577452; font-weight: 400; }
+.introduzione > p:last-of-type { color: var(--secondario); }
+.decorazione { position: absolute; right: 50px; top: 40px; font-size: 7rem; color: #6a7d53; width: 210px; height: 210px; display: grid; place-items: center; border: 1px solid #c8d1ba; border-radius: 50%; background: #e5eadb; transform: rotate(-12deg); }
+.messaggio { padding: 14px 18px; border-left: 3px solid #6b805c; background: #e9eee2; margin: 0 0 28px; border-radius: 0 8px 8px 0; font-size: .9rem; }
+.messaggio[data-tipo="errore"] { color: #82261f; border-color: var(--errore); background: #fbece6; }
+.layout { display: grid; grid-template-columns: 330px minmax(0, 1fr); gap: 36px; align-items: start; }
+.pannello { background: var(--carta); border: 1px solid var(--bordo); border-radius: 16px; padding: 28px; }
+h2 { margin: 0 0 8px; font: 400 1.75rem/1.2 Georgia, serif; }
+h3 { line-height: 1.3; }
+.nota { font-size: .8rem; color: var(--secondario); }
+fieldset { border: 0; padding: 0; margin: 24px 0 0; min-width: 0; }
+label { display: block; font-size: .85rem; font-weight: 650; margin-bottom: 6px; }
+input, select { width: 100%; min-height: 46px; padding: 10px 12px; border: 1px solid #aebcae; border-radius: 7px; background: white; color: var(--testo); }
+input::placeholder { color: #6d756e; }
+[aria-invalid="true"] { border-color: var(--errore); }
+.errore-campo { font-size: .78rem; color: var(--errore); margin: 4px 0 15px; }
+.errore-campo:empty { margin-top: 0; }
+button { cursor: pointer; min-height: 46px; border-radius: 7px; border: 1px solid var(--verde); background: var(--verde); color: white; padding: 10px 16px; font-weight: 600; }
+button:hover { background: #18392e; }
+button:disabled { opacity: .6; cursor: wait; }
+#salva { width: 100%; display: flex; justify-content: space-between; align-items: center; margin-top: 7px; }
+.intestazione-sezione { display: flex; justify-content: space-between; gap: 16px; align-items: center; padding: 5px 0 22px; }
+.conteggio { font-size: .8rem; border: 1px solid var(--bordo); border-radius: 40px; padding: 5px 12px; white-space: nowrap; }
+.vuoto { text-align: center; border: 1px dashed #b4c0ae; border-radius: 14px; padding: 65px 20px; color: var(--secondario); }
+.vuoto > span { display: inline-grid; place-items: center; width: 62px; height: 62px; background: #e6ebde; border-radius: 50%; font-size: 2rem; color: var(--verde); }
+.vuoto h3 { color: var(--testo); font: 400 1.6rem Georgia, serif; }
+.schede { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.scheda { background: var(--carta); border: 1px solid var(--bordo); border-radius: 12px; overflow: hidden; min-width: 0; }
+.copertina { height: 84px; background: #dce4d1; display: flex; align-items: center; justify-content: space-between; padding: 20px; font-size: .7rem; letter-spacing: .12em; font-weight: 700; }
+.copertina span:last-child { font: 2.5rem Georgia, serif; opacity: .5; }
+.scheda[data-tipo="serie"] .copertina { background: #eee0cb; }
+.corpo-scheda { padding: 20px; }
+.scheda h3 { margin: 0 0 8px; font: 400 1.45rem Georgia, serif; overflow-wrap: anywhere; }
+.metadati { color: var(--secondario); font-size: .85rem; overflow-wrap: anywhere; }
+.stato { display: inline-block; font-size: .75rem; border-radius: 5px; padding: 3px 8px; background: #edf0e7; margin: 0 0 20px; }
+.scheda button { display: block; width: 100%; background: transparent; color: var(--verde); }
+.scheda button:hover { background: #edf0e7; }
+.dettagli { margin-top: 32px; }
+#contenuto-dettagli { overflow-wrap: anywhere; }
+#contenuto-dettagli > p { color: var(--secondario); }
+dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-bottom: 0; }
+dt { font-size: .75rem; color: var(--secondario); }
+dd { margin: 3px 0 0; font-weight: 600; }
+footer { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; padding: 32px 0; color: var(--secondario); font-size: .85rem; }
+footer .nota { margin-left: auto; }
+.solo-lettori, .salta:not(:focus) { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.salta:focus { display: block; padding: 12px; color: var(--testo); }
+@media (max-width: 900px) { .decorazione { right: 15px; width: 140px; height: 140px; font-size: 4rem; } .layout { grid-template-columns: 290px minmax(0, 1fr); gap: 24px; } .schede { grid-template-columns: 1fr; } }
+@media (max-width: 650px) { .testata, main, footer { width: calc(100% - 32px); } .testata { min-height: 78px; } .testata > p { display: none; } .introduzione { padding: 32px 0 20px; } .decorazione { display: none; } .layout { grid-template-columns: 1fr; } .pannello { padding: 22px; } dl { grid-template-columns: repeat(2, minmax(0, 1fr)); } .vuoto { padding: 36px 16px; } footer { gap: 8px 20px; } footer .nota { margin: 0; width: 100%; } }
